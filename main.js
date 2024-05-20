@@ -1,8 +1,14 @@
-function playSound (idElementAudio) {
-    document.querySelector(idElementAudio).play();
-}
-
 const tileList = document.querySelectorAll('.key');
+
+function playSound (audioSelector) {
+    const element = document.querySelector(audioSelector);
+    if (element && element.localName === 'audio') {
+        element.play();
+    }
+    else {
+        console.log('element is not an audio');
+    }
+}
 
 function tilePLay() {
     for (let i = 0; i < tileList.length; i++) {
